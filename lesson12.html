@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="C:\Users\1\Desktop\kfund\css\lesson12.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Qahiri&family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/integration
+            emailjs.init('user_8KB4HUey0mnoGVt353LJe');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('service_adw22xb', 'template_069ibsr', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="left">
+        <div class="caption">Contact us</div>
+        <div class="links">
+            <div class="cont-icons"></div>
+                <div class="icon"><i class="fab fa-facebook-f"></i></div>
+            <div class="cont-icons"></div>
+                <div class="icon"><i class="fab fa-telegram-plane"></i></div>
+            <div class="cont-icons"></div>
+                <div class="icon"><i class="fab fa-linkedin-in"></i></div>
+        </div>
+        <div class="info">or use our contact from below</div>
+            <form id="contact-form">
+                <p><input type="text" placeholder="E-mail" name="reply_to"></p>
+                <p><input type="text" placeholder="Name" name="from_name"></p>
+                <div class="formtext">Type your message here</div>
+                <p><input type="textarea"></p>
+            </form>
+        <div class="help">Need  additional help?</div>
+        <button class="btn">Contact me</button>
+    </div>
+    <div class="right">
+        <div class="hello">Hello,User!</div>
+        <Div class="info2">if you want to know more info about our project</Div>
+        <button class="emptybutton"></button>
+    </div>
+</div>
+</body>
